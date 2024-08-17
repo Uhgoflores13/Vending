@@ -7,7 +7,9 @@ interface Props {
 
 const OrderItem: React.FC<Props> = ({ order }) => {
   return (
-    <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+    <div  className={`p-4 rounded-lg shadow-md ${
+      order.status === 'dispatched' ? 'bg-green-500' : 'bg-gray-100'
+    }`}>
       <h4 className="font-semibold">{order.product.name}</h4>
       <p>Estado: {order.status === 'preparing' ? 'Preparando' : 'Despachado'}</p>
       <p>Tiempo restante: {order.timeLeft}s</p>

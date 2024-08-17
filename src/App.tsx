@@ -3,7 +3,7 @@ import useFetchProducts from './Hooks/useFetchProducts';
 import { Order, Product } from './types/Product';
 import ProductList from './components/ProductList';
 import OrderList from './components/OrderList';
-import { Spinner,Button } from 'flowbite-react';
+import { Spinner } from 'flowbite-react';
 
 
 const App: React.FC = () => {
@@ -11,12 +11,11 @@ const App: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
 
   const handleOrder = (product: Product) => {
-    const fixedPreparationTime = 7; // Configura el tiempo de preparación fijo a 7 segundos
     const newOrder: Order = {
       id: Date.now(),
       product,
       status: 'preparing',
-      timeLeft: fixedPreparationTime,
+      timeLeft: product.preparation_time,
     };
     setOrders(prevOrders => [...prevOrders, newOrder]);
 

@@ -1,7 +1,8 @@
 export interface Product {
     id: number;
     name: string;
-    preparationTime: number; 
+    preparation_time: number; 
+    thumbnail: string | null;
   }
   
   export interface Order {
